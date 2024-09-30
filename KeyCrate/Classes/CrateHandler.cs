@@ -8,10 +8,12 @@ namespace KeyCrate.Classes
 {
     public class CrateHandler
     {
+        public static string CratePath { get; set; }
+
         // Läs endast den första linjen av CSV databasen som innehåller det unika seed och lösenordtestet
         public static string ReadCrateHeader(bool getSeed)
         {
-            using (StreamReader sr = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\KeyCrate.txt")) 
+            using (StreamReader sr = new StreamReader(CratePath)) 
             {
                 if (getSeed) // få salt&IV
                 {
@@ -30,7 +32,7 @@ namespace KeyCrate.Classes
             List<string> encryptedCredentialsList = new List<string>();
             List<string> decryptedCredentialsList = new List<string>();
             bool pastHeader = false;
-            using (StreamReader sr = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\KeyCrate.txt"))
+            using (StreamReader sr = new StreamReader(CratePath))
             {
                 while (!sr.EndOfStream)
                 {
@@ -64,7 +66,7 @@ namespace KeyCrate.Classes
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\KeyCrate.txt", false))
+                using (StreamWriter sw = new StreamWriter(CratePath, false))
                 {
                     sw.WriteLine(crateseed + "," + masterTest);
                 }
@@ -83,7 +85,7 @@ namespace KeyCrate.Classes
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\KeyCrate.txt", true))
+                using (StreamWriter sw = new StreamWriter(CratePath, true))
                 {
                     sw.WriteLine($"{Cryptos.EncryptCredentials(site, Cryptos.StoredKey, Cryptos.StoredSeed)}" +
                         $",{Cryptos.EncryptCredentials(username, Cryptos.StoredKey, Cryptos.StoredSeed)}" +

@@ -38,13 +38,14 @@
             updatecredentialsBtn = new Button();
             deletecredentialsBtn = new Button();
             credentialsView = new ListBox();
+            createBackupToolStripMenuItem = new ToolStripMenuItem();
             topviewMenu.SuspendLayout();
             SuspendLayout();
             // 
             // topviewMenu
             // 
             topviewMenu.ImageScalingSize = new Size(20, 20);
-            topviewMenu.Items.AddRange(new ToolStripItem[] { changeMasterPasswordToolStripMenuItem });
+            topviewMenu.Items.AddRange(new ToolStripItem[] { changeMasterPasswordToolStripMenuItem, createBackupToolStripMenuItem });
             topviewMenu.Location = new Point(0, 0);
             topviewMenu.Name = "topviewMenu";
             topviewMenu.Size = new Size(700, 28);
@@ -132,6 +133,13 @@
             credentialsView.TabIndex = 10;
             credentialsView.SelectedIndexChanged += credentialsView_SelectedIndexChanged;
             // 
+            // createBackupToolStripMenuItem
+            // 
+            createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
+            createBackupToolStripMenuItem.Size = new Size(118, 24);
+            createBackupToolStripMenuItem.Text = "Create Backup";
+            createBackupToolStripMenuItem.Click += createBackupToolStripMenuItem_Click;
+            // 
             // managerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -170,5 +178,6 @@
         private ToolStripMenuItem changeMasterPasswordToolStripMenuItem;
         private Button deletecredentialsBtn;
         private ListBox credentialsView;
+        private ToolStripMenuItem createBackupToolStripMenuItem;
     }
 }

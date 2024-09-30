@@ -31,22 +31,23 @@
             passwordTxt = new TextBox();
             loginBtn = new Button();
             showPasswordBox = new CheckBox();
+            loadbackupBtn = new Button();
             SuspendLayout();
             // 
             // passwordTxt
             // 
             passwordTxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordTxt.Location = new Point(12, 12);
+            passwordTxt.Location = new Point(12, 40);
             passwordTxt.Name = "passwordTxt";
             passwordTxt.PlaceholderText = "Password";
-            passwordTxt.Size = new Size(458, 38);
+            passwordTxt.Size = new Size(486, 38);
             passwordTxt.TabIndex = 1;
             passwordTxt.UseSystemPasswordChar = true;
             // 
             // loginBtn
             // 
             loginBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginBtn.Location = new Point(12, 56);
+            loginBtn.Location = new Point(12, 84);
             loginBtn.Name = "loginBtn";
             loginBtn.Size = new Size(486, 55);
             loginBtn.TabIndex = 2;
@@ -60,18 +61,31 @@
             showPasswordBox.Checked = true;
             showPasswordBox.CheckState = CheckState.Checked;
             showPasswordBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            showPasswordBox.Location = new Point(480, 23);
+            showPasswordBox.Location = new Point(12, 7);
             showPasswordBox.Name = "showPasswordBox";
-            showPasswordBox.Size = new Size(18, 17);
+            showPasswordBox.Size = new Size(198, 29);
             showPasswordBox.TabIndex = 4;
+            showPasswordBox.Text = "Hide Password Input";
             showPasswordBox.UseVisualStyleBackColor = true;
             showPasswordBox.CheckedChanged += showPasswordBox_CheckedChanged;
+            // 
+            // loadbackupBtn
+            // 
+            loadbackupBtn.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            loadbackupBtn.Location = new Point(216, 5);
+            loadbackupBtn.Name = "loadbackupBtn";
+            loadbackupBtn.Size = new Size(282, 32);
+            loadbackupBtn.TabIndex = 5;
+            loadbackupBtn.Text = "Load Backup";
+            loadbackupBtn.UseVisualStyleBackColor = true;
+            loadbackupBtn.Click += loadbackupBtn_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(510, 116);
+            ClientSize = new Size(510, 140);
+            Controls.Add(loadbackupBtn);
             Controls.Add(showPasswordBox);
             Controls.Add(loginBtn);
             Controls.Add(passwordTxt);
@@ -88,5 +102,6 @@
         private TextBox passwordTxt;
         private Button loginBtn;
         private CheckBox showPasswordBox;
+        private Button loadbackupBtn;
     }
 }

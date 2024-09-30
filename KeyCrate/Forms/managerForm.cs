@@ -122,5 +122,24 @@ namespace KeyCrate.Forms
             ChangePasswordForm changePasswordForm = new ChangePasswordForm();
             changePasswordForm.ShowDialog();
         }
+
+        private void createBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog fd = new SaveFileDialog();
+                fd.Filter = "TXT Files (*.txt) | *.txt";
+                fd.RestoreDirectory = true;
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    File.Copy(CrateHandler.CratePath, fd.FileName);
+                }
+                MessageBox.Show($"Encrypted Backup file has been created at " + fd.FileName, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to create backup file\n\n" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
