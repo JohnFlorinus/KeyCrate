@@ -9,4 +9,4 @@ Features
 
 Cryptographic Security
 * Bruteforce resistant - The PBKDF2 goes through 1 000 000 iterations with HMAC and SHA512.
-* Rainbow table attack resistant - Both AES and PBKDF2 uses a unique IV and salt that is randomly generated for each user through a CSPRNG. Rainbow table attacks will not work.
+* Precomputed tables resistant - Both AES and PBKDF2 uses a unique IV and salt that is randomly generated for each user through a CSPRNG. Rainbow table attacks will not work.
